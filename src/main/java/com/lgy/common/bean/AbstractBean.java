@@ -1,4 +1,4 @@
-package com.lgy.base.bean;
+package com.lgy.common.bean;
 
 import java.io.Serializable;
 

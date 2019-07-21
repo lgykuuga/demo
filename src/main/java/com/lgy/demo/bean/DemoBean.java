@@ -1,6 +1,6 @@
 package com.lgy.demo.bean;
 
-import com.lgy.base.bean.AbstractBean;
+import com.lgy.common.bean.AbstractBean;
 
 public class DemoBean extends AbstractBean {
 
