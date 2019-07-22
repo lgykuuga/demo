@@ -18,4 +18,7 @@ public interface DemoService {
 
     List<DemoBean> queryAll();
 
+    int setRedis(String key, String value);
+
+    String getRedis(String key);
 }

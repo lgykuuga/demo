@@ -1,3 +1,10 @@
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
+
+swagger:
+  title: demo-Swagger-title
+  description: Swagger整合
+  version: 1.0
+  terms-of-service-url: lgykuuga
+  base-package: com.lgy.demo
