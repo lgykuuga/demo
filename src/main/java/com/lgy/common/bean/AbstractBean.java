@@ -41,6 +41,19 @@ public abstract class AbstractBean implements Serializable, Cloneable  {
      */
     private Long updt;
 
+    @Override
+    public String toString() {
+        return "AbstractBean{" +
+                "id=" + id +
+                ", crna='" + crna + '\'' +
+                ", crco='" + crco + '\'' +
+                ", crdt=" + crdt +
+                ", upna='" + upna + '\'' +
+                ", upco='" + upco + '\'' +
+                ", updt=" + updt +
+                '}';
+    }
+
     public Long getId() {
         return id;
     }

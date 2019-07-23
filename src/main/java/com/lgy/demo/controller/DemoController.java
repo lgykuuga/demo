@@ -2,7 +2,7 @@ package com.lgy.demo.controller;
 
 
 import com.lgy.demo.bean.DemoBean;
-import com.lgy.demo.interfaces.DemoService;
+import com.lgy.demo.service.IDemoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Controller
@@ -18,8 +19,8 @@ import java.util.List;
 @Api("Demo Controller模块")
 public class DemoController {
 
-    @Autowired
-    DemoService demoService;
+    @Resource
+    IDemoService demoService;
 
     @ApiOperation(value = "say hello", httpMethod = "POST", notes = "返回一个hello World")
     @RequestMapping("/hello")

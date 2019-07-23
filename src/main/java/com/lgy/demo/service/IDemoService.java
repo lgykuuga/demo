@@ -1,13 +1,12 @@
-package com.lgy.demo.interfaces;
+package com.lgy.demo.service;
 
 import com.lgy.demo.bean.DemoBean;
-import io.swagger.annotations.Api;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public interface DemoService {
+public interface IDemoService {
 
     int insertDemo(DemoBean demoBean);
 
@@ -22,4 +21,6 @@ public interface DemoService {
     int setRedis(String key, String value);
 
     String getRedis(String key);
+
+    void rabbitMQListener(DemoBean demoBean);
 }

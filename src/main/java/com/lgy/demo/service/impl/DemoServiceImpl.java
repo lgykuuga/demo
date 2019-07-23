@@ -1,10 +1,11 @@
-package com.lgy.demo.interfaces.impl;
+package com.lgy.demo.service.impl;
 
 
+import com.lgy.common.rabbitMQ.RabbitMQConfig;
 import com.lgy.demo.bean.DemoBean;
-import com.lgy.demo.interfaces.DemoService;
+import com.lgy.demo.service.IDemoService;
 import com.lgy.demo.mapper.DemoMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class DemoServiceImpl implements DemoService {
+public class DemoServiceImpl implements IDemoService {
 
     @Resource
     DemoMapper demoMapper;
@@ -69,5 +70,15 @@ public class DemoServiceImpl implements DemoService {
             System.out.println("getRedis Exception:" + e);
         }
         return "";
+    }
+
+
+    /**
+     * 监听amqpAdmin.queue队列
+     */
+    @Override
+//    @RabbitListener(queues = RabbitMQConfig.AMQPADMIN_EXCHANGE)
+    public void rabbitMQListener(DemoBean demoBean) {
+        System.out.println("来监听amqpAdmin.queue");
     }
 }

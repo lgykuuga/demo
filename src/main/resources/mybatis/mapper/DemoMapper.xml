@@ -9,7 +9,7 @@
     </select>
 
     <insert id="insertDemo">
-        INSERT INTO demo(name, value) values (#{name}, #{value})
+        INSERT INTO demo(name, value, crco, crna, crdt) values (#{name}, #{value}, #{crco}, #{crna}, #{crdt})
     </insert>
 
     <update id="updateDemo">
