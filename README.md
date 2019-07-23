@@ -7,3 +7,8 @@
   2. redis  
   3. xxl-job-admin  
   4. rabbitMQ  
+
+
+rabbitMQ:http://localhost:15672/  
+xxl-job-admin:http://127.0.0.1:8090/xxl-job-admin/  
+swagger:http://localhost:8081/swagger-ui.html  
