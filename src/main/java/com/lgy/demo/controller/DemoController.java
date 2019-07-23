@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -70,6 +71,16 @@ public class DemoController {
     @ResponseBody
     public String getRedis(String key) {
         return demoService.getRedis(key);
+    }
+
+    @RequestMapping(value = "/handAmqpAdminProcuder", method= {RequestMethod.POST,RequestMethod.GET})
+    @ResponseBody
+    public String handAmqpAdminConsumer(String name) {
+        if (StringUtils.isEmpty(name)) {
+            return "name不能为空";
+        }
+        demoService.handAmqpAdminProcuder(name);
+        return "写入成功";
     }
 
 

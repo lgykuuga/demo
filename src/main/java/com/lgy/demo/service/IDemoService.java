@@ -23,4 +23,9 @@ public interface IDemoService {
     String getRedis(String key);
 
     void rabbitMQListener(DemoBean demoBean);
+
+    void handAmqpAdminProcuder(String name);
+
+    DemoBean factory();
+
 }

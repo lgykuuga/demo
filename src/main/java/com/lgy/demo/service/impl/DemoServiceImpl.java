@@ -5,10 +5,13 @@ import com.lgy.common.rabbitMQ.RabbitMQConfig;
 import com.lgy.demo.bean.DemoBean;
 import com.lgy.demo.service.IDemoService;
 import com.lgy.demo.mapper.DemoMapper;
+import com.xxl.job.core.log.XxlJobLogger;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -23,7 +26,7 @@ public class DemoServiceImpl implements IDemoService {
     RedisTemplate redisTemplate;
 
     @Resource
-    StringRedisTemplate stringRedisTemplate;
+    RabbitTemplate rabbitTemplate;
 
     @Override
     public int insertDemo(DemoBean demoBean) {
@@ -72,13 +75,37 @@ public class DemoServiceImpl implements IDemoService {
         return "";
     }
 
-
     /**
      * 监听amqpAdmin.queue队列
      */
     @Override
-//    @RabbitListener(queues = RabbitMQConfig.AMQPADMIN_EXCHANGE)
+    @RabbitListener(queues = RabbitMQConfig.AMQPADMIN_QUEUE)
     public void rabbitMQListener(DemoBean demoBean) {
         System.out.println("来监听amqpAdmin.queue");
+    }
+
+    /**
+     * 手动触发AmqpAdminProcuder
+     */
+    @Override
+    public void handAmqpAdminProcuder(String name) {
+        DemoBean demoBean = this.factory();
+        if (!StringUtils.isEmpty(name)) {
+            demoBean.setName(name);
+            //对象默认被序列化发出去,后根据messageConverter配置把序列化改成Json格式
+            rabbitTemplate.convertAndSend(RabbitMQConfig.AMQPADMIN_EXCHANGE, RabbitMQConfig.AMQPADMIN_QUEUE, demoBean);
+        } else {
+            return;
+        }
+    }
+
+    @Override
+    public DemoBean factory() {
+        //TODO 获取当前对象,设置创建人
+        DemoBean demoBean = new DemoBean();
+        demoBean.setCrco("Task");
+        demoBean.setCrna("XXL-JOB-Task");
+        demoBean.setCrdt(System.currentTimeMillis());
+        return demoBean;
     }
 }
