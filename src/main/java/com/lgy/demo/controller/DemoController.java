@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/demo")
-@Api("Demo模块")
+@Api("Demo Controller模块")
 public class DemoController {
 
     @Autowired

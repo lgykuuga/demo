@@ -1,6 +1,7 @@
 package com.lgy.demo.interfaces;
 
 import com.lgy.demo.bean.DemoBean;
+import io.swagger.annotations.Api;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
