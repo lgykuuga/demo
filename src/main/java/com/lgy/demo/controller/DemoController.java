@@ -1,10 +1,13 @@
 package com.lgy.demo.controller;
 
 
+import com.lgy.common.controller.AbstractController;
 import com.lgy.demo.bean.DemoBean;
 import com.lgy.demo.service.IDemoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -20,6 +23,8 @@ import java.util.List;
 @Api("Demo Controller模块")
 public class DemoController {
 
+    public Logger logger = LoggerFactory.getLogger(getClass());
+
     @Resource
     IDemoService demoService;
 
@@ -27,59 +32,68 @@ public class DemoController {
     @RequestMapping("/hello")
     @ResponseBody
     public String sayHello() {
-        System.out.println("接收say hello");
+        logger.info("接收say hello");
         return "hello world!";
     }
 
     @RequestMapping(value = "/insert", method= {RequestMethod.POST,RequestMethod.GET})
     @ResponseBody
     public int insertDemo(DemoBean demoBean) {
+        logger.info("insertDemo：[{}]", demoBean.toString());
         return demoService.insertDemo(demoBean);
     }
 
     @RequestMapping(value = "/delete", method= {RequestMethod.POST,RequestMethod.GET})
     @ResponseBody
     public int deleteDemo(int id) {
+        logger.info("deleteDemo：[{}]", id);
         return demoService.deleteDemo(id);
     }
 
     @RequestMapping(value = "/update", method= {RequestMethod.POST,RequestMethod.GET})
     @ResponseBody
     public int updateDemo(DemoBean demoBean) {
+        logger.info("updateDemo：[{}]", demoBean.toString());
         return demoService.updateDemo(demoBean);
     }
 
     @RequestMapping(value = "/queryDemoById", method= {RequestMethod.POST,RequestMethod.GET})
     @ResponseBody
     public DemoBean queryDemoById(int id) {
+        logger.info("queryDemoById：[{}]", id);
         return demoService.queryDemoById(id);
     }
 
     @RequestMapping(value = "/queryAll", method= {RequestMethod.POST,RequestMethod.GET})
     @ResponseBody
-    public List<DemoBean> queryAll() {
+    public List<DemoBean> queryAllDemo() {
+        logger.info("queryAllDemo()");
         return demoService.queryAll();
     }
 
     @RequestMapping(value = "/setRedis", method= {RequestMethod.POST,RequestMethod.GET})
     @ResponseBody
     public int setRedis(String key, String value) {
+        logger.info("setRedis()：[{}],[{}]", key, value);
         return demoService.setRedis(key, value);
     }
 
     @RequestMapping(value = "/getRedis", method= {RequestMethod.POST,RequestMethod.GET})
     @ResponseBody
     public String getRedis(String key) {
+        logger.info("getRedis()：[{}]", key);
         return demoService.getRedis(key);
     }
 
     @RequestMapping(value = "/handAmqpAdminProcuder", method= {RequestMethod.POST,RequestMethod.GET})
     @ResponseBody
     public String handAmqpAdminConsumer(String name) {
+        logger.info("handAmqpAdminConsumer()：[{}]", name);
         if (StringUtils.isEmpty(name)) {
             return "name不能为空";
         }
         demoService.handAmqpAdminProcuder(name);
+        logger.info("handAmqpAdminConsumer return：写入成功");
         return "写入成功";
     }
 

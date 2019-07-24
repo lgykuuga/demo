@@ -2,6 +2,7 @@ package com.lgy.demo.service.impl;
 
 
 import com.lgy.common.rabbitMQ.RabbitMQConfig;
+import com.lgy.common.service.AbstractServiceImpl;
 import com.lgy.demo.bean.DemoBean;
 import com.lgy.demo.service.IDemoService;
 import com.lgy.demo.mapper.DemoMapper;

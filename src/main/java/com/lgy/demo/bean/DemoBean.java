@@ -26,4 +26,11 @@ public class DemoBean extends AbstractBean {
         this.value = value;
     }
 
+    @Override
+    public String toString() {
+        return "DemoBean{" +
+                "name='" + name + '\'' +
+                ", value='" + value + '\'' +
+                '}';
+    }
 }

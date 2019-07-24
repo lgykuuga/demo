@@ -3,6 +3,8 @@ package com.lgy.demo.queque;
 import com.lgy.common.rabbitMQ.RabbitMQConfig;
 import com.lgy.demo.bean.DemoBean;
 import com.lgy.demo.service.IDemoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ import javax.annotation.Resource;
 @Service
 public class AmqpAdminConsumer {
 
+    public Logger logger = LoggerFactory.getLogger(getClass());
+
     @Resource
     IDemoService demoService;
 
@@ -25,12 +29,12 @@ public class AmqpAdminConsumer {
 
     @RabbitListener(queues = RabbitMQConfig.AMQPADMIN_QUEUE)
     public void receive(DemoBean demoBean) {
-        System.out.println("监听到amqpAdmin.queue消息,保存demoBean");
+        logger.info("监听到amqpAdmin.queue消息,保存demoBean:[{}]", demoBean.toString());
         if (demoBean != null) {
             demoService.insertDemo(demoBean);
-            System.out.println("保存demoBean成功");
+            logger.info("保存[{}]成功", demoBean.toString());
         } else {
-            System.out.println("demoBean为空");
+            logger.error("demoBean为空");
         }
 
     }
