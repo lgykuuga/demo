@@ -1,6 +1,6 @@
-package com.lgy.common.listener;
+package com.lgy.common.config.listener;
 
-import com.lgy.common.rabbitMQ.InitRabbitMQ;
+import com.lgy.common.config.rabbitMQ.InitRabbitMQ;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.lgy.common.rabbitMQ;
+package com.lgy.common.config.rabbitMQ;
 
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;

@@ -1,17 +1,13 @@
 package com.lgy.demo.rabbitMQ;
 
-import com.lgy.common.rabbitMQ.RabbitMQConfig;
+import com.lgy.common.config.rabbitMQ.RabbitMQConfig;
 import com.lgy.demo.bean.DemoBean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.List;
-import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,8 +21,8 @@ public class RabbitMQTest {
     public void convertAndSend() {
 
         DemoBean demoBean = new DemoBean();
-        demoBean.setName("aaa");
-        demoBean.setValue("bbb");
+        demoBean.setGco("aaa");
+        demoBean.setGna("bbb");
         demoBean.setCrco("RabbitMQTest");
         demoBean.setCrna("RabbitMQ测试");
         demoBean.setCrdt(System.currentTimeMillis());

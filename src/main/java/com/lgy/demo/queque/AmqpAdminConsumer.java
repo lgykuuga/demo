@@ -1,13 +1,12 @@
 package com.lgy.demo.queque;
 
-import com.lgy.common.rabbitMQ.RabbitMQConfig;
+import com.lgy.common.config.rabbitMQ.RabbitMQConfig;
 import com.lgy.demo.bean.DemoBean;
 import com.lgy.demo.service.IDemoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

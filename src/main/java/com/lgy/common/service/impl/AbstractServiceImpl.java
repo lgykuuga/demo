@@ -26,7 +26,7 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
 
     @Override
     public Integer save(T t) {
-        return abstractDao.save(t);
+         return abstractDao.save(t);
     }
 
     @Override

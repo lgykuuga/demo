@@ -85,12 +85,12 @@ public class DemoController {
 
     @RequestMapping(value = "/handAmqpAdminProcuder", method= {RequestMethod.POST,RequestMethod.GET})
     @ResponseBody
-    public String handAmqpAdminConsumer(String name) {
-        logger.info("handAmqpAdminConsumer()：[{}]", name);
-        if (StringUtils.isEmpty(name)) {
-            return "name不能为空";
+    public String handAmqpAdminConsumer(String gco) {
+        logger.info("handAmqpAdminConsumer()：[{}]", gco);
+        if (StringUtils.isEmpty(gco)) {
+            return "gco不能为空";
         }
-        demoService.handAmqpAdminProcuder(name);
+        demoService.handAmqpAdminProcuder(gco);
         logger.info("handAmqpAdminConsumer return：写入成功");
         return "写入成功";
     }

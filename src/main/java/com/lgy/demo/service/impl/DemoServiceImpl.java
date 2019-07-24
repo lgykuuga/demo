@@ -1,7 +1,7 @@
 package com.lgy.demo.service.impl;
 
 
-import com.lgy.common.rabbitMQ.RabbitMQConfig;
+import com.lgy.common.config.rabbitMQ.RabbitMQConfig;
 import com.lgy.demo.bean.DemoBean;
 import com.lgy.demo.service.IDemoService;
 import com.lgy.demo.mapper.DemoMapper;
@@ -86,10 +86,10 @@ public class DemoServiceImpl implements IDemoService {
      * 手动触发AmqpAdminProcuder
      */
     @Override
-    public void handAmqpAdminProcuder(String name) {
+    public void handAmqpAdminProcuder(String gco) {
         DemoBean demoBean = this.factory();
-        if (!StringUtils.isEmpty(name)) {
-            demoBean.setName(name);
+        if (!StringUtils.isEmpty(gco)) {
+            demoBean.setGco(gco);
             //对象默认被序列化发出去,后根据messageConverter配置把序列化改成Json格式
             rabbitTemplate.convertAndSend(RabbitMQConfig.AMQPADMIN_EXCHANGE, RabbitMQConfig.AMQPADMIN_QUEUE, demoBean);
         } else {

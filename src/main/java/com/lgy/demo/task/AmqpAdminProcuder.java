@@ -1,6 +1,6 @@
 package com.lgy.demo.task;
 
-import com.lgy.common.rabbitMQ.RabbitMQConfig;
+import com.lgy.common.config.rabbitMQ.RabbitMQConfig;
 import com.lgy.demo.bean.DemoBean;
 import com.lgy.demo.service.IDemoService;
 import com.xxl.job.core.biz.model.ReturnT;
@@ -11,7 +11,6 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.concurrent.TimeUnit;
 
 
 /**

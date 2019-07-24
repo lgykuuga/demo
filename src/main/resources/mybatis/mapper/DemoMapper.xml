@@ -9,11 +9,11 @@
     </select>
 
     <insert id="insertDemo">
-        INSERT INTO demo(name, value, crco, crna, crdt) values (#{name}, #{value}, #{crco}, #{crna}, #{crdt})
+        INSERT INTO demo(gco, gna, crco, crna, crdt, rema) values (#{gco}, #{gna}, #{crco}, #{crna}, #{crdt}, #{rema})
     </insert>
 
     <update id="updateDemo">
-        update demo set name = #{name}, value = #{value} where id = #{id}
+        update demo set gco = #{gco}, gna = #{gna} where id = #{id}
     </update>
 
     <delete id="deleteDemo">

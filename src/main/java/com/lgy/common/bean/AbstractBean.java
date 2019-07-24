@@ -12,18 +12,18 @@ public abstract class AbstractBean implements Serializable, Cloneable  {
      */
     private static final long serialVersionUID = 1L;
 
-    @TableId(type = IdType.AUTO)//MyBatis plus默认为雪花算法,设置为数据库自增
+    @TableId(type = IdType.AUTO)//MyBatis plus默认为雪花算法,ID改为数据库自增
     private Long id;
 
     /**
      * 创建人名称
      */
-    private String crna ;
+    private String crna;
 
     /**
      * 创建人编码
      */
-    private String crco ;
+    private String crco;
 
     /**
      * 创建时间
@@ -45,18 +45,10 @@ public abstract class AbstractBean implements Serializable, Cloneable  {
      */
     private Long updt;
 
-    @Override
-    public String toString() {
-        return "AbstractBean{" +
-                "id=" + id +
-                ", crna='" + crna + '\'' +
-                ", crco='" + crco + '\'' +
-                ", crdt=" + crdt +
-                ", upna='" + upna + '\'' +
-                ", upco='" + upco + '\'' +
-                ", updt=" + updt +
-                '}';
-    }
+    /**
+     * 备注
+     */
+    private String rema;
 
     public Long getId() {
         return id;
@@ -112,5 +104,13 @@ public abstract class AbstractBean implements Serializable, Cloneable  {
 
     public void setUpdt(Long updt) {
         this.updt = updt;
+    }
+
+    public String getRema() {
+        return rema;
+    }
+
+    public void setRema(String rema) {
+        this.rema = rema;
     }
 }

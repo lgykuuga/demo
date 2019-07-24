@@ -22,7 +22,7 @@ public interface IDemoService {
 
     void rabbitMQListener(DemoBean demoBean);
 
-    void handAmqpAdminProcuder(String name);
+    void handAmqpAdminProcuder(String gco);
 
     DemoBean factory();
 

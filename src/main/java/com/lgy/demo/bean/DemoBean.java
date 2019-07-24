@@ -6,31 +6,30 @@ public class DemoBean extends AbstractBean {
 
     private static final long serialVersionUID = 1L;
 
-    private String name;
-    private String value;
+    private String gco;
+    private String gna;
 
-    public String getName() {
-        return name;
+    public String getGco() {
+        return gco;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setGco(String gco) {
+        this.gco = gco;
     }
 
-
-    public String getValue() {
-        return value;
+    public String getGna() {
+        return gna;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setGna(String gna) {
+        this.gna = gna;
     }
 
     @Override
     public String toString() {
         return "DemoBean{" +
-                "name='" + name + '\'' +
-                ", value='" + value + '\'' +
+                "gco='" + gco + '\'' +
+                ", gna='" + gna + '\'' +
                 '}';
     }
 }

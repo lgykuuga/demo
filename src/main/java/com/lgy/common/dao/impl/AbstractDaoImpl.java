@@ -48,8 +48,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 
     @Override
     public Integer deleteByIds(String ids) {
-        String[] split = ids.split(",");
-        return baseMapper.deleteBatchIds(Arrays.asList(split));
+        return baseMapper.deleteBatchIds(Arrays.asList(ids));
     }
 
     @Override
@@ -74,12 +73,15 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 
     @Override
     public Integer updateColumnsAll(T t) {
-        return baseMapper.updateById(t);
+        return null;
     }
 
+    /**
+     * 根据ID修改不为空的值
+     */
     @Override
     public Integer updateColumnsOnlyHaveValues(T t) {
-        return null;
+        return baseMapper.updateById(t);
     }
 
     @Override

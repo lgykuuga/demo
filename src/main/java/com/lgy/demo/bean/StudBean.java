@@ -10,6 +10,12 @@ public class StudBean extends AbstractBean {
 
     private String gco;
     private String gna;
+    private Integer age;
+    private String mail;
+    /**
+     * 上级学号
+     */
+    private String pgco;
 
     public String getGco() {
         return gco;
@@ -27,11 +33,38 @@ public class StudBean extends AbstractBean {
         this.gna = gna;
     }
 
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getPgco() {
+        return pgco;
+    }
+
+    public void setPgco(String pgco) {
+        this.pgco = pgco;
+    }
+
     @Override
     public String toString() {
         return "StudBean{" +
                 "gco='" + gco + '\'' +
                 ", gna='" + gna + '\'' +
+                ", age=" + age +
+                ", mail='" + mail + '\'' +
+                ", pgco='" + pgco + '\'' +
                 '}';
     }
 }
