@@ -4,7 +4,6 @@ import com.lgy.common.service.AbstractService;
 import com.lgy.common.util.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.util.List;
 
 public abstract class AbstractController<T, Service extends AbstractService<T>> {
 
@@ -57,6 +57,13 @@ public abstract class AbstractController<T, Service extends AbstractService<T>> 
     public T findOne(@RequestParam Long id) {
         logger.debug("Start execute findOne operation with id[{}]", id);
         return service.findOne(id);
+    }
+
+    @ResponseBody
+    @RequestMapping("/findAll")
+    public List<T> findAll() {
+        logger.debug("Start execute findAll operation");
+        return service.findAll();
     }
 
 }

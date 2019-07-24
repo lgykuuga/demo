@@ -1,9 +1,10 @@
 package com.lgy.demo.bean;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.lgy.common.bean.AbstractBean;
 
-
-public class BaseBean extends AbstractBean {
+@TableName("stud")
+public class StudBean extends AbstractBean {
 
     private static final long serialVersionUID = 1L;
 
@@ -28,7 +29,7 @@ public class BaseBean extends AbstractBean {
 
     @Override
     public String toString() {
-        return "BaseBean{" +
+        return "StudBean{" +
                 "gco='" + gco + '\'' +
                 ", gna='" + gna + '\'' +
                 '}';

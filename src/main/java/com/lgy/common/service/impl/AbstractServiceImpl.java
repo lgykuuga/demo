@@ -1,10 +1,10 @@
-package com.lgy.common.service;
+package com.lgy.common.service.impl;
 
 
 import com.lgy.common.dao.AbstractDao;
+import com.lgy.common.service.AbstractService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import javax.annotation.Resource;
 import java.util.Collection;
 import java.util.List;

@@ -1,8 +1,6 @@
 package com.lgy.demo.service;
 
-import com.lgy.common.service.AbstractService;
 import com.lgy.demo.bean.DemoBean;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

@@ -1,5 +1,8 @@
 package com.lgy.common.bean;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
 
 public abstract class AbstractBean implements Serializable, Cloneable  {
@@ -9,6 +12,7 @@ public abstract class AbstractBean implements Serializable, Cloneable  {
      */
     private static final long serialVersionUID = 1L;
 
+    @TableId(type = IdType.AUTO)//MyBatis plus默认为雪花算法,设置为数据库自增
     private Long id;
 
     /**

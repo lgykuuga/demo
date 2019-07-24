@@ -1,7 +1,6 @@
 package com.lgy.demo.controller;
 
 
-import com.lgy.common.controller.AbstractController;
 import com.lgy.demo.bean.DemoBean;
 import com.lgy.demo.service.IDemoService;
 import io.swagger.annotations.Api;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Controller
@@ -25,7 +23,7 @@ public class DemoController {
 
     public Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Resource
+    @Autowired
     IDemoService demoService;
 
     @ApiOperation(value = "say hello", httpMethod = "POST", notes = "返回一个hello World")
