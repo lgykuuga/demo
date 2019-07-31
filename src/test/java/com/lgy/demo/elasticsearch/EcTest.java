@@ -43,7 +43,7 @@ public class EcTest {
 
     @Test
     public void findAll() {
-        Iterable<DemoBean> demoAll = demoRepository.findAll();
+         Iterable<DemoBean> demoAll = demoRepository.findAll();
         demoAll.forEach(demo -> {
             System.out.println(demo.toString());
         });

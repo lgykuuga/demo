@@ -6,10 +6,12 @@
   1. mysql 5.6或以上版本  
   2. redis  
   3. xxl-job-admin  
-  4. rabbitMQ  
+  4. rabbitMQ
+  5. ElasticSearch 6.2.2版本
 
 
 rabbitMQ:http://localhost:15672/  
 xxl-job-admin:http://127.0.0.1:8090/xxl-job-admin/  
 swagger:http://localhost:8081/swagger-ui.html  
 druid:http://localhost:8081/druid/index.html  
+ElasticSearch：http://localhost:9200 
