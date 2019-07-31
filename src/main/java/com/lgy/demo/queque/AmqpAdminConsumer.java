@@ -30,12 +30,15 @@ public class AmqpAdminConsumer {
     public void receive(DemoBean demoBean) {
         logger.info("监听到amqpAdmin.queue消息,保存demoBean:[{}]", demoBean.toString());
         if (demoBean != null) {
-            demoService.insertDemo(demoBean);
-            logger.info("保存[{}]成功", demoBean.toString());
+            Integer i = demoService.save(demoBean);
+            if (i == 1) {
+                logger.info("保存[{}]成功", demoBean.toString());
+            } else {
+                logger.error("保存[{}]失败", demoBean.toString());
+            }
         } else {
             logger.error("demoBean为空");
         }
-
     }
 
 }

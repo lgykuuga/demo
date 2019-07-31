@@ -5,4 +5,5 @@ import com.lgy.demo.bean.StudBean;
 
 public interface IStudDao extends AbstractDao<StudBean> {
 
+
 }

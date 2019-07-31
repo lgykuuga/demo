@@ -3,7 +3,7 @@ package com.lgy.common.dao;
 import java.util.Collection;
 import java.util.List;
 
-public interface AbstractDao<T> {
+public interface AbstractDao<T>  {
 
     /**
      * 存储记录

@@ -1,7 +1,11 @@
 package com.lgy.demo.bean;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.lgy.common.bean.AbstractBean;
+import org.springframework.data.elasticsearch.annotations.Document;
 
+@TableName("demo")
+@Document(indexName = "lgy",type = "demo")
 public class DemoBean extends AbstractBean {
 
     private static final long serialVersionUID = 1L;

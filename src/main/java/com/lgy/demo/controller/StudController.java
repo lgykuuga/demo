@@ -3,7 +3,7 @@ package com.lgy.demo.controller;
 
 import com.lgy.common.controller.AbstractController;
 import com.lgy.demo.bean.StudBean;
-import com.lgy.demo.service.IStudBeanService;
+import com.lgy.demo.service.IStudService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
@@ -15,10 +15,10 @@ import javax.annotation.Resource;
 @Controller
 @RequestMapping("/stud")
 @Api("stud Controller模块")
-public class StudController extends AbstractController<StudBean, IStudBeanService> {
+public class StudController extends AbstractController<StudBean, IStudService> {
 
     @Resource
-    IStudBeanService studService;
+    IStudService studService;
 
     @ApiOperation(value = "say hello", httpMethod = "POST", notes = "返回一个hello World")
     @RequestMapping("/hello")

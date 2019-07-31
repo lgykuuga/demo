@@ -5,7 +5,8 @@ import com.lgy.common.dao.AbstractDao;
 import com.lgy.common.service.AbstractService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
 
     public Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Resource
+    @Autowired
     AbstractDao<T> abstractDao;
 
     public AbstractServiceImpl() {

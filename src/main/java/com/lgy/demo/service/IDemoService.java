@@ -1,20 +1,9 @@
 package com.lgy.demo.service;
 
+import com.lgy.common.service.AbstractService;
 import com.lgy.demo.bean.DemoBean;
 
-import java.util.List;
-
-public interface IDemoService {
-
-    int insertDemo(DemoBean demoBean);
-
-    int deleteDemo(int id);
-
-    int updateDemo(DemoBean demoBean);
-
-    DemoBean queryDemoById(int id);
-
-    List<DemoBean> queryAll();
+public interface IDemoService extends AbstractService<DemoBean> {
 
     int setRedis(String key, String value);
 
@@ -22,8 +11,8 @@ public interface IDemoService {
 
     void rabbitMQListener(DemoBean demoBean);
 
-    void handAmqpAdminProcuder(String gco);
+    void handAmqpAdminProcuder(DemoBean demoBean);
 
-    DemoBean factory();
+    DemoBean factory(DemoBean demoBean);
 
 }
