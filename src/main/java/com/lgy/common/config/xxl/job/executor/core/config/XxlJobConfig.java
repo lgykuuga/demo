@@ -7,11 +7,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ConditionalOnProperty(name = "system.xxl.job", havingValue = "on", matchIfMissing = true)
-@PropertySource(value = {"classpath:xxl_job.properties"})//使用外部加载文件
+//@PropertySource(value = {"classpath:xxl_job.properties"})//使用外部加载文件
 public class XxlJobConfig {
     private Logger logger = LoggerFactory.getLogger(XxlJobConfig.class);
 
