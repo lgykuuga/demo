@@ -48,7 +48,8 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 
     @Override
     public Integer deleteByIds(String ids) {
-        return baseMapper.deleteBatchIds(Arrays.asList(ids));
+        String[] idz = ids.split(",");
+        return baseMapper.deleteBatchIds(Arrays.asList(idz));
     }
 
     @Override

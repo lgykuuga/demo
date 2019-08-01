@@ -2,6 +2,7 @@ package com.lgy.common.controller;
 
 import com.lgy.common.service.AbstractService;
 import com.lgy.common.util.Message;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public abstract class AbstractController<T, Service extends AbstractService<T>> 
 
     @ResponseBody
     @RequestMapping(value = {"/save"}, method = {RequestMethod.POST})
+    @ApiOperation(value = "保存方法", httpMethod = "POST", notes = "Abstract method,save Object")
     public Message save(@Valid T t, Errors errors) {
         logger.debug("Start execute save operation[{}]", t.toString());
         Integer res = service.save(t);
@@ -31,6 +33,7 @@ public abstract class AbstractController<T, Service extends AbstractService<T>> 
 
     @ResponseBody
     @RequestMapping(value = {"/delete"}, method = {RequestMethod.POST})
+    @ApiOperation(value = "删除方法", httpMethod = "POST", notes = "Abstract method,delete By ID")
     public Message delete(@RequestParam String ids) {
         logger.debug("Start execute delete operation[{}]", ids);
         if (ids != null) {
@@ -46,6 +49,7 @@ public abstract class AbstractController<T, Service extends AbstractService<T>> 
 
     @ResponseBody
     @RequestMapping(value = {"/update"}, method = {RequestMethod.POST})
+    @ApiOperation(value = "更新方法", httpMethod = "POST", notes = "Abstract method, updateColumnsAll")
     public Message update(@Valid T t, Errors errors) {
         logger.debug("Start execute update operation[{}]", t.toString());
         Integer res = service.updateColumnsAll(t);
@@ -54,6 +58,7 @@ public abstract class AbstractController<T, Service extends AbstractService<T>> 
 
     @ResponseBody
     @RequestMapping("/findOne")
+    @ApiOperation(value = "FindOne", httpMethod = "POST", notes = "Abstract method, findOneById")
     public T findOne(@RequestParam Long id) {
         logger.debug("Start execute findOne operation with id[{}]", id);
         return service.findOne(id);
@@ -61,6 +66,7 @@ public abstract class AbstractController<T, Service extends AbstractService<T>> 
 
     @ResponseBody
     @RequestMapping("/findAll")
+    @ApiOperation(value = "findAll", httpMethod = "POST", notes = "Abstract method, findAll")
     public List<T> findAll() {
         logger.debug("Start execute findAll operation");
         return service.findAll();

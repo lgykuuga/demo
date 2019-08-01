@@ -23,9 +23,9 @@ public class StudController extends AbstractController<StudBean, IStudService> {
     @ApiOperation(value = "say hello", httpMethod = "POST", notes = "返回一个hello World")
     @RequestMapping("/hello")
     @ResponseBody
-    public String sayHello() {
-        logger.info("接收say hello");
-        return "hello world!";
+    public String sayHello(String name) {
+        logger.info("接收say hello " + name);
+        return name + " hello world!";
     }
 
 }
