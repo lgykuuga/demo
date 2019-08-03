@@ -1,7 +1,6 @@
 package com.lgy.demo.task;
 
 import com.lgy.common.config.rabbitMQ.RabbitMQConfig;
-import com.lgy.common.util.DateUtil;
 import com.lgy.demo.bean.DemoBean;
 import com.lgy.demo.service.IDemoService;
 import com.xxl.job.core.biz.model.ReturnT;
@@ -30,7 +29,7 @@ public class AmqpAdminProcuder extends IJobHandler {
 	public ReturnT<String> execute(String param) throws Exception {
 		XxlJobLogger.log("AmqpAdminProcuder, param:" + param);
 		DemoBean demoBean = demoService.factory(new DemoBean());
-		demoBean.setGco(DateUtil.longToString(System.currentTimeMillis()) + Math.random()* 100);
+		demoBean.setGco("" + Math.random()* 100);
 		//对象默认被序列化发出去,后根据messageConverter配置把序列化改成Json格式
 		rabbitTemplate.convertAndSend(RabbitMQConfig.AMQPADMIN_EXCHANGE, RabbitMQConfig.AMQPADMIN_QUEUE, demoBean);
 
