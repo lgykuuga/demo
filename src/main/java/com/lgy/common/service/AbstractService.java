@@ -2,6 +2,7 @@ package com.lgy.common.service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 public abstract interface AbstractService<T> {
 
@@ -72,11 +73,26 @@ public abstract interface AbstractService<T> {
      * 根据ID查询记录
      * @param id
      */
-    T findOne(Long id);
+    T findOneById(Long id);
 
     /**
      * 查询所有
      */
-    List<T> findAll() ;
+    List<T> findAll();
+
+    /**
+     * 根据值查询
+     * @param column
+     * @param value
+     * @return
+     */
+    T findOne(String column, String value);
+
+    /**
+     * 根据条件查询
+     * @param map
+     * @return
+     */
+    List<T> findAllByMap(Map<String, Object> map);
 
 }

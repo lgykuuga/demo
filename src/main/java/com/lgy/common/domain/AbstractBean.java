@@ -1,4 +1,4 @@
-package com.lgy.common.bean;
+package com.lgy.common.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

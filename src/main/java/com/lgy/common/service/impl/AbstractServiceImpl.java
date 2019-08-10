@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 基础服务封装.
@@ -42,12 +43,22 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
 
     @Override
     public Integer delete(T t) {
-        return abstractDao.delete(t);
+        try {
+            return abstractDao.delete(t);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 
     @Override
     public Integer delete(Collection<T> beans) {
-        return abstractDao.delete(beans);
+        try {
+            return abstractDao.delete(beans);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 
     @Override
@@ -62,7 +73,12 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
 
     @Override
     public Integer deleteAll() {
-        return abstractDao.deleteAll();
+        try {
+            return abstractDao.deleteAll();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 
     @Override
@@ -76,13 +92,27 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
     }
 
     @Override
-    public T findOne(Long id) {
-        return abstractDao.findOne(id);
+    public T findOneById(Long id) {
+        return abstractDao.findOneById(id);
     }
 
     @Override
     public List<T> findAll() {
         return abstractDao.findAll();
     }
+
+    @Override
+    public T findOne(String column, String value) {
+        return abstractDao.findOne(column, value);
+    }
+
+    /**
+     * 根据条件查询
+     */
+    public List<T> findAllByMap(Map<String, Object> map) {
+        return abstractDao.findAllByMap(map);
+    }
+
+
 
 }

@@ -57,11 +57,11 @@ public abstract class AbstractController<T, Service extends AbstractService<T>> 
     }
 
     @ResponseBody
-    @RequestMapping("/findOne")
-    @ApiOperation(value = "FindOne", httpMethod = "POST", notes = "Abstract method, findOneById")
+    @RequestMapping("/findOneById")
+    @ApiOperation(value = "findOneById", httpMethod = "POST", notes = "Abstract method, findOneById")
     public T findOne(@RequestParam Long id) {
         logger.debug("Start execute findOne operation with id[{}]", id);
-        return service.findOne(id);
+        return service.findOneById(id);
     }
 
     @ResponseBody

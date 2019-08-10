@@ -1,15 +1,17 @@
 package com.lgy.common.dao.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.lgy.common.dao.AbstractDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 /**
  *  TODO 实现CRUD封装,用jdbc or Mybatis
@@ -24,8 +26,8 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 
     public Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+//    @Autowired
+//    JdbcTemplate jdbcTemplate;
 
     @Autowired
     private BaseMapper<T> baseMapper;
@@ -38,7 +40,12 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 
     @Override
     public Integer save(Collection<T> beans) {
-        return null;
+        int count = 0;
+        for (T t: beans) {
+            int i = save(t);
+            count += i;
+        }
+        return count;
     }
 
     @Override
@@ -58,23 +65,29 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
     }
 
     @Override
-    public Integer delete(T t) {
-        return null;
+    public Integer delete(T t) throws NoSuchFieldException {
+        Class<?> aClass = t.getClass();
+        Field id = aClass.getField("id");
+        return baseMapper.deleteById(id.toString());
     }
 
     @Override
-    public Integer delete(Collection<T> beans) {
-        return null;
+    public Integer delete(Collection<T> beans) throws NoSuchFieldException {
+        int count = 0;
+        for (T t: beans) {
+            count += delete(t);
+        }
+        return count;
     }
 
     @Override
-    public Integer deleteAll() {
-        return null;
+    public Integer deleteAll() throws NoSuchFieldException {
+        return delete(findAll());
     }
 
     @Override
     public Integer updateColumnsAll(T t) {
-        return null;
+        return baseMapper.updateById(t);
     }
 
     /**
@@ -86,15 +99,30 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
     }
 
     @Override
-    public T findOne(Long id) {
-        return baseMapper.selectById(id);
-    }
-
-    @Override
     public List<T> findAll() {
         return baseMapper.selectList(null);
     }
 
+    @Override
+    public T findOneById(Long id) {
+        return baseMapper.selectById(id);
+    }
 
+    @Override
+    public T findOne(String column, String value) {
+        QueryWrapper<T> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("column", value);
+        return baseMapper.selectOne(queryWrapper);
+    }
+
+    /**
+     * 根据条件查询
+     * @param map 传入查询参数值
+     * @return 返回对象List
+     */
+    @Override
+    public List<T> findAllByMap(Map<String, Object> map) {
+        return baseMapper.selectByMap(map);
+    }
 
 }

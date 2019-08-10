@@ -2,6 +2,7 @@ package com.lgy.common.dao;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 public interface AbstractDao<T>  {
 
@@ -31,7 +32,7 @@ public interface AbstractDao<T>  {
      * @param t
      * @return
      */
-    Integer delete(T t);
+    Integer delete(T t) throws NoSuchFieldException;
 
     /**
      * 根据ID删除
@@ -43,7 +44,7 @@ public interface AbstractDao<T>  {
      * 删除指定的beans，根据ID删除
      * @param beans
      */
-    Integer delete(Collection<T> beans);
+    Integer delete(Collection<T> beans) throws NoSuchFieldException;
 
     /**
      * 根据id集合删除
@@ -54,7 +55,7 @@ public interface AbstractDao<T>  {
     /**
      * 删除所有的beans
      */
-    Integer deleteAll();
+    Integer deleteAll() throws NoSuchFieldException;
 
     /**
      * 修改一行，并且是根据t的实行全部修改
@@ -69,14 +70,28 @@ public interface AbstractDao<T>  {
     Integer updateColumnsOnlyHaveValues(T t) ;
 
     /**
+     * 查询所有
+     */
+    List<T> findAll();
+
+    /**
      * 根据ID查询记录
      * @param id
      */
-    T findOne(Long id);
+    T findOneById(Long id);
 
     /**
-     * 查询所有
+     * 根据条件查询
+     * @param column
+     * @param value
+     * @return
      */
-    List<T> findAll() ;
+    T findOne(String column, String value);
 
+    /**
+     * 根据条件查询
+     * @param map
+     * @return
+     */
+    List<T> findAllByMap(Map<String, Object> map);
 }

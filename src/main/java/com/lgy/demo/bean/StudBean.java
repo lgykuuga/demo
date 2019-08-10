@@ -1,7 +1,7 @@
 package com.lgy.demo.bean;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.lgy.common.bean.AbstractBean;
+import com.lgy.common.domain.AbstractBean;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 @TableName("stud")

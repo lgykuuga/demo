@@ -9,7 +9,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @SpringBootApplication
 @ServletComponentScan
 @EnableRabbit //开启RabbitMQ注解模式
-@MapperScan("com.lgy.demo.mapper")//Mybatis plus扫描
+@MapperScan({"com.lgy.demo.mapper"})//Mybatis plus扫描
 public class DemoApplication {
 
     public static void main(String[] args) {

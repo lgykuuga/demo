@@ -1,0 +1,82 @@
+
+server:
+  port: 8080
+
+spring:
+  profiles:
+#    active: dev
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 127.0.0.1:9300
+  datasource:
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    filters: stat,wall,slf4j
+    initialSize: 5
+    maxActive: 20
+    maxPoolPreparedStatementPerConnectionSize: 20
+    maxWait: 60000
+    minEvictableIdleTimeMillis: 300000
+    minIdle: 5
+    password: 123456
+    poolPreparedStatements: true
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=CTT&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    useGlobalDataSourceStat: true
+    username: root
+    validationQuery: SELECT 1 FROM DUAL
+
+  rabbitmq:
+    host: 127.0.0.1
+    password: guest
+    port: 5672
+    username: guest
+
+  redis:
+    host: 127.0.0.1
+    password: ''
+    port: 6379
+
+swagger:
+  base-package: com.lgy.demo
+  description: Swagger整合
+  terms-of-service-url: lgykuuga
+  title: demo-Swagger-title
+  version: 1.0
+
+##xxl_job是否开启 on/off
+system:
+  xxl:
+    job: 'off'
+
+xxl:
+  job:
+    accessToken: ''
+    admin:
+      addresses: http://127.0.0.1:8090/xxl-job-admin
+    executor:
+      appname: xxl-job-executor-demo
+      ip: ''
+      logpath: F:/demo-logging/xxl-job
+      logretentiondays: -1
+      port: 9999
+
+logging:
+  file: F:/demo-logging/spring-boot.log
+  file.max-history: 30
+  file.max-size: 50MB
+  level:
+    com:
+      lgy: info
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n'
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
