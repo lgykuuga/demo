@@ -46,6 +46,13 @@
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
 
+        <!-- configuration-processor -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!-- Spring AOP支持-->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -213,6 +220,14 @@
             <artifactId>UserAgentUtils</artifactId>
             <version>${bitwalker.version}</version>
         </dependency>
+
+        <!-- rocketMQ -->
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>4.5.1</version>
+        </dependency>
+
 
     </dependencies>
 
