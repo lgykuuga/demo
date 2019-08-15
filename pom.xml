@@ -121,7 +121,6 @@
             </exclusions>
         </dependency>
 
-
         <!-- xxljob -->
         <dependency>
             <groupId>com.xuxueli</groupId>

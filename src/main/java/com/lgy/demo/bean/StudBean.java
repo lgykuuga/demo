@@ -5,7 +5,7 @@ import com.lgy.common.domain.AbstractBean;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 @TableName("stud")
-@Document(indexName = "stud",type = "stud")
+@Document(indexName = "stud")
 public class StudBean extends AbstractBean {
 
     private static final long serialVersionUID = 1L;

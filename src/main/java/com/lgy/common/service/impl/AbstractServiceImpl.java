@@ -113,6 +113,20 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
         return abstractDao.findAllByMap(map);
     }
 
+    /**
+     * 根据单号修改
+     * @param t
+     * @return
+     */
+    public Integer updateByBiid(T t) {
+        try {
+            return abstractDao.updateByBiid(t);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 
 
 }

@@ -95,4 +95,11 @@ public abstract interface AbstractService<T> {
      */
     List<T> findAllByMap(Map<String, Object> map);
 
+    /**
+     * 根据单号修改
+     * @param t
+     * @return
+     */
+    Integer updateByBiid(T t);
+
 }

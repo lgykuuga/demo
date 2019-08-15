@@ -1,6 +1,7 @@
 package com.lgy.common.dao.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.lgy.common.dao.AbstractDao;
 import org.slf4j.Logger;
@@ -88,6 +89,13 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
     @Override
     public Integer updateColumnsAll(T t) {
         return baseMapper.updateById(t);
+    }
+
+    @Override
+    public Integer updateByBiid(T t) throws NoSuchFieldException {
+        UpdateWrapper<T> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("biid", t.getClass().getField("biid"));
+        return baseMapper.update(t, updateWrapper);
     }
 
     /**
