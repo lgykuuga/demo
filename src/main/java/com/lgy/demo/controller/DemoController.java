@@ -60,4 +60,6 @@ public class DemoController extends AbstractController<DemoBean, IDemoService> {
     }
 
 
+
+
 }

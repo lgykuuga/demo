@@ -7,7 +7,6 @@ import com.lgy.demo.pattern.OrderFlagEnum;
 
 public interface IOrderService extends AbstractService<OrderBean> {
 
-
     OrderBean factory(OrderBean order);
 
     /**

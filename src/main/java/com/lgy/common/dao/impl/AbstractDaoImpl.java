@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -26,6 +27,8 @@ import java.util.Map;
 public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 
     public Logger logger = LoggerFactory.getLogger(getClass());
+
+    private Class<T> t;
 
 //    @Autowired
 //    JdbcTemplate jdbcTemplate;
@@ -92,9 +95,10 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
     }
 
     @Override
-    public Integer updateByBiid(T t) throws NoSuchFieldException {
+    public Integer updateByBiid(T t) throws NoSuchFieldException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         UpdateWrapper<T> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq("biid", t.getClass().getField("biid"));
+        String biid = t.getClass().getMethod("getBiid").invoke(t).toString();
+        updateWrapper.eq("biid", biid);
         return baseMapper.update(t, updateWrapper);
     }
 

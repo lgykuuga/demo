@@ -9,17 +9,15 @@ import com.lgy.demo.pattern.OrderFlag;
 import com.lgy.demo.pattern.OrderFlagEnum;
 import com.lgy.demo.pattern.flagStateService.OrderNewService;
 import com.lgy.demo.service.IOrderService;
+import com.lgy.demo.statemachine.OrderEventEnum;
+import com.lgy.demo.statemachine.OrderStateEnum;
+import org.springframework.statemachine.StateMachine;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 @Service
 public class OrderServiceImpl extends AbstractServiceImpl<OrderBean> implements IOrderService {
-
-    // 状态
-    AbstractOrderFlag orderFlag;
-
-    // 新增状态
-    AbstractOrderFlag orderNewService = new OrderNewService();
-
 
     @Override
     public OrderBean factory(OrderBean order) {
@@ -34,6 +32,7 @@ public class OrderServiceImpl extends AbstractServiceImpl<OrderBean> implements 
     public Message updateOrderFlag(OrderBean order, OrderFlagEnum orderFlagEnum) {
         logger.info("订单[{}]更新状态为[{}]", order.getBiid(), orderFlagEnum.getValue());
         order.setFlag(orderFlagEnum.getKey());
+        order.setUpdt(System.currentTimeMillis());
         Integer i = this.updateByBiid(order);
         if (i == 1) {
             return new Message("更新订单状态成功", true);

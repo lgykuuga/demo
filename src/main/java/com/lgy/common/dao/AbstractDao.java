@@ -1,5 +1,6 @@
 package com.lgy.common.dao;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -100,5 +101,5 @@ public interface AbstractDao<T>  {
      * @param t
      * @return
      */
-    Integer updateByBiid(T t) throws NoSuchFieldException;
+    Integer updateByBiid(T t) throws NoSuchFieldException, NoSuchMethodException, InvocationTargetException, IllegalAccessException;
 }
