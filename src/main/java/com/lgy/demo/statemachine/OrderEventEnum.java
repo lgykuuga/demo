@@ -1,8 +1,5 @@
 package com.lgy.demo.statemachine;
 
-import com.lgy.common.util.Message;
-import com.lgy.demo.bean.oms_order.OrderBean;
-
 /**
  * 订单行为枚举类
  */

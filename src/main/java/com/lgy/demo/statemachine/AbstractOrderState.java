@@ -5,8 +5,6 @@ import com.lgy.demo.bean.oms_order.OrderBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Random;
-
 public class AbstractOrderState implements OrderState{
 
     public Logger logger = LoggerFactory.getLogger(getClass());

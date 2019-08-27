@@ -3,7 +3,7 @@ package com.lgy.demo.service;
 import com.lgy.common.service.AbstractService;
 import com.lgy.common.util.Message;
 import com.lgy.demo.bean.oms_order.OrderBean;
-import com.lgy.demo.pattern.OrderFlagEnum;
+import com.lgy.demo.enums.OrderFlagEnum;
 
 public interface IOrderService extends AbstractService<OrderBean> {
 

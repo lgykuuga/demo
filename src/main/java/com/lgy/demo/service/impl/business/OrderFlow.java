@@ -2,7 +2,7 @@ package com.lgy.demo.service.impl.business;
 
 import com.lgy.common.util.Message;
 import com.lgy.demo.bean.oms_order.OrderBean;
-import com.lgy.demo.pattern.OrderFlagEnum;
+import com.lgy.demo.enums.OrderFlagEnum;
 import com.lgy.demo.service.IOrderService;
 import com.lgy.demo.statemachine.OrderContext;
 import org.slf4j.Logger;
@@ -10,10 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Random;
-
 /**
- *  订单流程订单
+ *  订单流程
  */
 @Service
 public class OrderFlow {

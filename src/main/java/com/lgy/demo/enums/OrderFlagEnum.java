@@ -1,4 +1,4 @@
-package com.lgy.demo.pattern;
+package com.lgy.demo.enums;
 
 public enum OrderFlagEnum {
 
@@ -10,19 +10,19 @@ public enum OrderFlagEnum {
     ORDER_CANCEL(95, "已取消"),
     ORDER_COMPLETE(99, "已完成");
 
-    int key;
+    Integer key;
     String value;
 
-    OrderFlagEnum(int key, String value) {
+    OrderFlagEnum(Integer key, String value) {
         this.key = key;
         this.value = value;
     }
 
-    public int getKey() {
+    public Integer getKey() {
         return key;
     }
 
-    public void setKey(int key) {
+    public void setKey(Integer key) {
         this.key = key;
     }
 

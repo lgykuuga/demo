@@ -4,17 +4,9 @@ package com.lgy.demo.service.impl;
 import com.lgy.common.service.impl.AbstractServiceImpl;
 import com.lgy.common.util.Message;
 import com.lgy.demo.bean.oms_order.OrderBean;
-import com.lgy.demo.pattern.AbstractOrderFlag;
-import com.lgy.demo.pattern.OrderFlag;
-import com.lgy.demo.pattern.OrderFlagEnum;
-import com.lgy.demo.pattern.flagStateService.OrderNewService;
+import com.lgy.demo.enums.OrderFlagEnum;
 import com.lgy.demo.service.IOrderService;
-import com.lgy.demo.statemachine.OrderEventEnum;
-import com.lgy.demo.statemachine.OrderStateEnum;
-import org.springframework.statemachine.StateMachine;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 @Service
 public class OrderServiceImpl extends AbstractServiceImpl<OrderBean> implements IOrderService {
