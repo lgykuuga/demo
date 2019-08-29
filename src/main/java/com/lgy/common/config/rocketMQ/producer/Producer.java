@@ -19,10 +19,9 @@ public class Producer {
                 user.setLoginName("abc"+i);
                 user.setPwd(String.valueOf(i));
                 Message message = new Message("log-topic", "user-tag", JSON.toJSONString(user).getBytes());
-                 System.out.println("生产者发送消息:"+JSON.toJSONString(user));
+                System.out.println("生产者发送消息:"+JSON.toJSONString(user));
                 producer.send(message);
             }
-
 
         } catch (Exception e) {
             e.printStackTrace();
