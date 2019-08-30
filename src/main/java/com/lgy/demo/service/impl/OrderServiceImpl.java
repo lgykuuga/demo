@@ -1,15 +1,22 @@
 package com.lgy.demo.service.impl;
 
 
+import com.lgy.common.config.incrementer.IDIncrementer;
 import com.lgy.common.service.impl.AbstractServiceImpl;
 import com.lgy.common.util.Message;
 import com.lgy.demo.bean.oms_order.OrderBean;
 import com.lgy.demo.enums.OrderFlagEnum;
 import com.lgy.demo.service.IOrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class OrderServiceImpl extends AbstractServiceImpl<OrderBean> implements IOrderService {
+
+    @Autowired
+    IDIncrementer idIncrementer;
+
+    private static final String MOID = "ODMA";
 
     @Override
     public OrderBean factory(OrderBean order) {
@@ -30,5 +37,11 @@ public class OrderServiceImpl extends AbstractServiceImpl<OrderBean> implements 
             return new Message("更新订单状态成功", true);
         }
         return new Message( "更新订单状态失败", false);
+    }
+
+    @Override
+    public Integer save(OrderBean orderBean) {
+        orderBean.setBiid(idIncrementer.getNextId(MOID));
+        return super.save(orderBean);
     }
 }

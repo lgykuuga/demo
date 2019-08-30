@@ -25,7 +25,7 @@ public abstract class AbstractController<T, Service extends AbstractService<T>> 
     @ResponseBody
     @RequestMapping(value = {"/save"}, method = {RequestMethod.POST})
     @ApiOperation(value = "保存方法", httpMethod = "POST", notes = "Abstract method,save Object")
-    public Message save(@Valid T t, Errors errors) {
+    public Message save(@Valid T t) {
         logger.debug("Start execute save operation[{}]", t.toString());
         Integer res = service.save(t);
         return res == 1 ? new Message("保存成功", true) : new Message("保存失败", false);
