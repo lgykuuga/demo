@@ -43,7 +43,7 @@ public class DemoController extends AbstractController<DemoBean, IDemoService> {
     @RequestMapping(value = "/getRedis", method= {RequestMethod.POST,RequestMethod.GET})
     @ResponseBody
     public String getRedis(String key) {
-        logger.info("getRedis()：[{}]", key);
+        logger.info("getRedis：[{}]", key);
         return demoService.getRedis(key);
     }
 
