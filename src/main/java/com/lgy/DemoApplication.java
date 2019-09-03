@@ -14,7 +14,7 @@ public class DemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
-        System.out.println("启动成功" +
+        System.out.println("Hello World! 启动成功" +
                 " __       ____                \n" +
                 "/\\ \\     /\\  _`\\              \n" +
                 "\\ \\ \\    \\ \\ \\L\\_\\  __  __    \n" +
