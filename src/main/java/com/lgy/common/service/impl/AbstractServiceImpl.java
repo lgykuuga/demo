@@ -110,6 +110,7 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
     /**
      * 根据条件查询
      */
+    @Override
     public List<T> findAllByMap(Map<String, Object> map) {
         return abstractDao.findAllByMap(map);
     }
@@ -119,6 +120,7 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
      * @param t
      * @return
      */
+    @Override
     public Integer updateByBiid(T t) {
         try {
             return abstractDao.updateByBiid(t);

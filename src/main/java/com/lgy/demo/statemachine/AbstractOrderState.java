@@ -9,41 +9,41 @@ public class AbstractOrderState implements OrderState{
 
     public Logger logger = LoggerFactory.getLogger(getClass());
 
-    private final static Message message = new Message("该状态不允许此操作", false);
+    private final static Message MESSAGE = new Message("该状态不允许此操作", false);
 
     @Override
     public Message saveOrder(OrderBean order) {
-        return message;
+        return MESSAGE;
     }
 
     @Override
     public Message auditOrder(OrderBean order) {
-        return message;
+        return MESSAGE;
     }
 
     @Override
     public Message distributionOrder(OrderBean order) {
-        return message;
+        return MESSAGE;
     }
 
     @Override
     public Message pushOrder(OrderBean order) {
-        return message;
+        return MESSAGE;
     }
 
     @Override
     public Message sendoutOrder(OrderBean order) {
-        return message;
+        return MESSAGE;
     }
 
     @Override
     public Message completeOrder(OrderBean order) {
-        return message;
+        return MESSAGE;
     }
 
     @Override
     public Message cancelOrder(OrderBean order) {
-        return message;
+        return MESSAGE;
     }
 
     public boolean getRandomBoolean() {

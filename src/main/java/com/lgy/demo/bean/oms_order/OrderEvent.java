@@ -12,7 +12,6 @@ public class OrderEvent extends AbstractBean {
 
     private static final long serialVersionUID = 1L;
 
-
     private Integer flag;//订单节点状态 OrderFlagEnum
     private Integer type;//订单类型(1:一单一货/2:一单多货/3:大单)   OrderQtyEnum
     private Integer stat;//订单状态(0:取消/1:有效/2:被合并/3:被拆分)  OrderStatusEnum

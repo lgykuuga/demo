@@ -19,6 +19,7 @@ public class RedisDAOImpl implements RedisDAO {
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
+    @Override
     public RedisTemplate<String, Object> getRedisTemplate() {
         return redisTemplate;
     }
@@ -63,7 +64,7 @@ public class RedisDAOImpl implements RedisDAO {
     public String getValue(String key) {
 
         return redisTemplate.execute(new RedisCallback<String>() {
-
+            @Override
             public String doInRedis(RedisConnection connection)
                     throws DataAccessException {
                 byte[] k = redisTemplate.getStringSerializer().serialize(key);
@@ -134,6 +135,7 @@ public class RedisDAOImpl implements RedisDAO {
     @Override
     public void delete(String key) {
         redisTemplate.execute(new RedisCallback<Object>() {
+            @Override
             public Object doInRedis(RedisConnection connection) {
                 connection.del(redisTemplate.getStringSerializer().serialize(key));
                 return null;
@@ -145,6 +147,7 @@ public class RedisDAOImpl implements RedisDAO {
     public void delete(String key,String... fields) {
         for (String field : fields) {
             redisTemplate.execute(new RedisCallback<Object>() {
+                @Override
                 public Object doInRedis(RedisConnection connection) {
                     connection.hDel(redisTemplate.getStringSerializer().serialize(key), redisTemplate.getStringSerializer().serialize(field));
                     return null;
@@ -157,6 +160,7 @@ public class RedisDAOImpl implements RedisDAO {
     public Boolean hmset(String key,String field,String value) {
 
         Object obj = redisTemplate.execute(new RedisCallback<Object>() {
+            @Override
             public Boolean doInRedis(RedisConnection connection) {
                 return connection.hSet(redisTemplate.getStringSerializer().serialize(key)
                         , redisTemplate.getStringSerializer().serialize(field),redisTemplate.getStringSerializer().serialize(value));
@@ -173,6 +177,7 @@ public class RedisDAOImpl implements RedisDAO {
     public String hmget(String key, String field) {
 
         Object obj = redisTemplate.execute(new RedisCallback<Object>() {
+            @Override
             public String doInRedis(RedisConnection connection) {
                 byte[] value = connection.hGet(redisTemplate.getStringSerializer().serialize(key)
                         , redisTemplate.getStringSerializer().serialize(field));
@@ -192,6 +197,7 @@ public class RedisDAOImpl implements RedisDAO {
     @Override
     public Long hmIncrBy(String key, String field,Long delta) {
         Object obj = redisTemplate.execute(new RedisCallback<Object>() {
+            @Override
             public Long doInRedis(RedisConnection connection) {
                 Long value = connection.hIncrBy(redisTemplate.getStringSerializer().serialize(key)
                         , redisTemplate.getStringSerializer().serialize(field), delta);
@@ -210,6 +216,7 @@ public class RedisDAOImpl implements RedisDAO {
     @Override
     public Boolean hmExists(String key, String field) {
         Object obj = redisTemplate.execute(new RedisCallback<Object>() {
+            @Override
             public Boolean doInRedis(RedisConnection connection) {
                 return connection.hExists(redisTemplate.getStringSerializer().serialize(key), redisTemplate.getStringSerializer().serialize(field));
             }

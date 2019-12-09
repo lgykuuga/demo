@@ -71,6 +71,7 @@ public class OrderManageService {
             case ORDER_CANCEL:
                 //取消动作
                 cancel(order);
+                break;
             default :
                 logger.error("没有定义行为");
         }

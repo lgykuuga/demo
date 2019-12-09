@@ -174,7 +174,7 @@ public class SystemConfigManage {
      */
     private static void initXxlJobConfig(Class obj) {
         String jobs = systemConfigMap.get("system.jobs");
-        if(jobs != null && jobs.equalsIgnoreCase("on")){
+        if("on".equalsIgnoreCase(jobs)){
             Properties ps = getConfigProperties(obj,"META-INF/xxl-job.properties");
             ps.forEach(new BiConsumer<Object, Object>() {
                 @Override
@@ -208,7 +208,7 @@ public class SystemConfigManage {
      */
     private static void initRabbitConfig(Class obj) {
         String rabbit = systemConfigMap.get("system.rabbitMQ");
-        if(rabbit != null && rabbit.equalsIgnoreCase("on")){
+        if("on".equalsIgnoreCase(rabbit)){
             Properties ps = getConfigProperties(obj,"META-INF/rabbitMQ.properties");
             ps.forEach(new BiConsumer<Object, Object>() {
                 @Override

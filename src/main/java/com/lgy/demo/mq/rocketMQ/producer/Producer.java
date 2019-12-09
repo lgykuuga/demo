@@ -1,4 +1,4 @@
-package com.lgy.common.config.rocketMQ.producer;
+package com.lgy.demo.mq.rocketMQ.producer;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.rocketmq.client.exception.MQClientException;

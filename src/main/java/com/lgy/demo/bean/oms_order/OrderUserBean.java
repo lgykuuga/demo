@@ -1,10 +1,6 @@
 package com.lgy.demo.bean.oms_order;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.lgy.common.domain.AbstractBean;
-import org.springframework.data.elasticsearch.annotations.Document;
-
-import java.math.BigDecimal;
 
 /**
  * 订单买家信息
@@ -59,18 +55,5 @@ public class OrderUserBean extends AbstractBean {
     private String receiver_phone;
     /** 收货人的邮件地址 */
     private String receiver_email;
-
-
-    /**
-     * TODO 待定字段
-     * 收件人国家编码、省份/洲编码、城市编码、区编码
-     * `user_language` varchar(10) NOT NULL DEFAULT '' COMMENT '用户浏览语种',
-     * `customer_id` int(11) NOT NULL DEFAULT '0' COMMENT 'oms顾客id',
-     *  `customer_level_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '客户级别',
-     *  `customer_zone_id` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '顾客区域ID@@@',
-     *   `customer_lang_id` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '顾客语种表@@@',
-     * `address_status` varchar(100) NOT NULL DEFAULT '' COMMENT '地址状态',
-     */
-
 
 }

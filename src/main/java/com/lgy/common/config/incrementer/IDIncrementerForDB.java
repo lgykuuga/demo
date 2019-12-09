@@ -66,11 +66,10 @@ public class IDIncrementerForDB {
         if (map != null) {
             String next = map.get("next").toString();
 
-            //2017-04-06
             String dateStr = SimpleDateUtils.convertDateToStirng(SimpleDateUtils.getCurrentTimeToStirng());
             int row = -1;
             //当时间不对时，重置生成规则
-            if(!dateStr.equals(map.get("updt"))){
+            if (!dateStr.equals(map.get("updt"))) {
                 updateGidsDate(dateStr);
                 row = 1;
             }else{

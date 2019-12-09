@@ -9,8 +9,8 @@
  
   1. mysql 5.6或以上版本  
   2. redis  
-  3. xxl-job-admin  
-  4. rabbitMQ
+  3. xxl-job  
+  4. rabbitMQ 3.7.7
   5. ElasticSearch 6.2.2版本
   6. rocketMQ 4.5.1版本
 
