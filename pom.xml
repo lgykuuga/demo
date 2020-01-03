@@ -234,7 +234,12 @@
             <version>2.0.2.RELEASE</version>
         </dependency>
 
-
+        <!-- disruptor并发框架 -->
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.3.6</version>
+        </dependency>
 
     </dependencies>
 
