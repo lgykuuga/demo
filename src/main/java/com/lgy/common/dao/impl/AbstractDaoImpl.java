@@ -15,23 +15,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-/**
- *  TODO 实现CRUD封装,用jdbc or Mybatis
- *   所有基于业务处理的数据访问均集成于该类，这样无论底层如何变化，对上面访问者而言，均是透明;
- *   同时对于底层的改动，无需担忧访问者的代码升级.
- *
- *   简单的CRUD、分页查询操作由mybatis plus完成,在各自业务模块注入对应mapper实现。
- *   导入导出、数据权限业务由自己业务封装完成
- *
- */
+
 public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 
     public Logger logger = LoggerFactory.getLogger(getClass());
 
     private Class<T> t;
-
-//    @Autowired
-//    JdbcTemplate jdbcTemplate;
 
     @Autowired
     private BaseMapper<T> baseMapper;
