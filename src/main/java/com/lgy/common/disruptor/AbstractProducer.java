@@ -4,7 +4,7 @@ import com.lmax.disruptor.RingBuffer;
 import org.springframework.beans.BeanUtils;
 
 /**
- * @Description TODO
+ * @Description Producer
  * @Author LGy
  * @Date 2020/1/3 16:42
  **/
