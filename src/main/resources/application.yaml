@@ -11,6 +11,10 @@ spring:
     elasticsearch:
       cluster-name: elasticsearch
       cluster-nodes: 127.0.0.1:9300
+      mongodb:
+        host: localhost
+        port: 27017
+        database: test
   datasource:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
     driver-class-name: com.mysql.cj.jdbc.Driver
