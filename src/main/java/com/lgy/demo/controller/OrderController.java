@@ -38,7 +38,7 @@ public class OrderController extends AbstractController<OrderBean, IOrderService
     @RequestMapping(value = "/stateMachineStart", method= {RequestMethod.POST})
     @ResponseBody
     public void contextLoads() {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(1);
         map.put("flag", 1);
         List<OrderBean> orders = orderService.findAllByMap(map);
         for (OrderBean order : orders) {

@@ -76,14 +76,11 @@ public class OrderFlow {
         //随机取消订单
         if (getRandomBoolean()) {
             OrderBean finalOrder = order;
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    logger.info("随机取消订单:[{}]", finalOrder.getBiid());
-                    Message cancelMessage = orderContext.cancelOrder(finalOrder);
-                    if (cancelMessage.isStatus()) {
-                        orderService.updateOrderFlag(finalOrder, OrderFlagEnum.ORDER_CANCEL);
-                    }
+            new Thread(() -> {
+                logger.info("随机取消订单:[{}]", finalOrder.getBiid());
+                Message cancelMessage = orderContext.cancelOrder(finalOrder);
+                if (cancelMessage.isStatus()) {
+                    orderService.updateOrderFlag(finalOrder, OrderFlagEnum.ORDER_CANCEL);
                 }
             }).start();
         }
