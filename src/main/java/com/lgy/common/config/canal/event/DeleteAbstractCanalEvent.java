@@ -1,4 +1,4 @@
-package com.star.sync.elasticsearch.event;
+package com.lgy.common.config.canal.event;
 
 import com.alibaba.otter.canal.protocol.CanalEntry.Entry;
 

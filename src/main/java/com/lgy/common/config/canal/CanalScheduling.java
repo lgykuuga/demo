@@ -1,13 +1,13 @@
-package com.star.sync.elasticsearch.scheduling;
+package com.lgy.common.config.canal;
 
 import com.alibaba.otter.canal.client.CanalConnector;
 import com.alibaba.otter.canal.protocol.CanalEntry.Entry;
 import com.alibaba.otter.canal.protocol.CanalEntry.EntryType;
 import com.alibaba.otter.canal.protocol.CanalEntry.EventType;
 import com.alibaba.otter.canal.protocol.Message;
-import com.star.sync.elasticsearch.event.DeleteAbstractCanalEvent;
-import com.star.sync.elasticsearch.event.InsertAbstractCanalEvent;
-import com.star.sync.elasticsearch.event.UpdateAbstractCanalEvent;
+import com.lgy.common.config.canal.event.DeleteAbstractCanalEvent;
+import com.lgy.common.config.canal.event.InsertAbstractCanalEvent;
+import com.lgy.common.config.canal.event.UpdateAbstractCanalEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;

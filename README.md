@@ -10,9 +10,10 @@
   1. mysql 5.6或以上版本  
   2. redis  
   3. xxl-job  
-  4. rabbitMQ 3.7.7
-  5. ElasticSearch 6.2.2版本
+  4. rabbitMQ 3.7.7版本
+  5. ElasticSearch 6.2.4版本
   6. rocketMQ 4.5.1版本
+  7. canal 1.1.4版本
 
 
 rabbitMQ:http://localhost:15672/  
@@ -21,3 +22,4 @@ swagger:http://localhost:8081/swagger-ui.html
 druid:http://localhost:8081/druid/index.html  
 ElasticSearch：http://localhost:9200  
 rocketMQ: http://localhost:8080/ 
+Kibana: http://localhost:5601/app/kibana#/management/kibana/index?_g=()
