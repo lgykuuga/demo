@@ -28,8 +28,18 @@ public class TraceLogDisruptorUtil extends AbstractDisruptorUtil<TraceLogEvent> 
                 DaemonThreadFactory.INSTANCE
         );
 
-        //创建消费者组
-        disruptor.handleEventsWith(traceLogHandler);
+//        //创建消费者组
+//        disruptor.handleEventsWith(traceLogHandler);
+
+        //创建消费者组,多线程消费
+        int threadCount = 10;
+        TraceLogHandler[] traceLogHandlers = new TraceLogHandler[threadCount];
+        for (int i = 0; i < threadCount; i++) {
+            traceLogHandlers[i] = traceLogHandler;
+        }
+
+        disruptor.handleEventsWithWorkerPool(traceLogHandlers);
+
         //启动disruptor
         disruptor.start();
         this.traceLogProducer = new TraceLogProducer(disruptor.getRingBuffer());
