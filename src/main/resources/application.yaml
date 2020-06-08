@@ -117,6 +117,7 @@ rocketmq:
 
 # canal配置
 canal:
+  enable: false
   host: 127.0.0.1
   port: 11111
   destination: example
