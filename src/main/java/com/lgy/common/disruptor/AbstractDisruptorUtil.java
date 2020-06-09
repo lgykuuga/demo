@@ -8,7 +8,7 @@ import org.springframework.beans.factory.InitializingBean;
 
 /**
  * @Author LGy
- * @Date 2019/30/30
+ * @Date 2019/12/30
  * @Description DisruptorUtil
  */
 public abstract class AbstractDisruptorUtil<T> implements DisposableBean, InitializingBean {

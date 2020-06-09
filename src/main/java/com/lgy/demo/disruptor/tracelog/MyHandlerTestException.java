@@ -1,4 +1,4 @@
-package com.lgy.common.disruptor;
+package com.lgy.demo.disruptor.tracelog;
 
 import com.lmax.disruptor.ExceptionHandler;
 import org.slf4j.Logger;
@@ -9,28 +9,28 @@ import org.slf4j.LoggerFactory;
  * @Author LGy
  * @Date 2020/1/9 14:17
  **/
-public class MyHandlerException implements ExceptionHandler {
+public class MyHandlerTestException implements ExceptionHandler {
 
-    private Logger logger = LoggerFactory.getLogger(MyHandlerException.class);
+    private Logger logger = LoggerFactory.getLogger(MyHandlerTestException.class);
 
     /**
      * (non-Javadoc) 运行过程中发生时的异常
      *
      * @see
-     * com.lmax.disruptor.ExceptionHandler#handleEventException(java.lang.Throwable
-     * , long, java.lang.Object)
+     * ExceptionHandler#handleEventException(Throwable
+     * , long, Object)
      */
     @Override
     public void handleEventException(Throwable ex, long sequence, Object event) {
         ex.printStackTrace();
-        logger.error("process data error sequence ==[{}] event==[{}] ,ex ==[{}]", sequence, event.toString(), ex.getMessage());
+        logger.error("Test!!!!!!!!!!!!!");
     }
 
     /**
      * (non-Javadoc) 启动时的异常
      *
      * @see
-     * com.lmax.disruptor.ExceptionHandler#handleOnStartException(java.lang.Throwable)
+     * ExceptionHandler#handleOnStartException(Throwable)
      */
     @Override
     public void handleOnStartException(Throwable ex) {

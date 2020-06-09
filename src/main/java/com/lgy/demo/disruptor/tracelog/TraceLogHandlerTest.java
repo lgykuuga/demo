@@ -12,21 +12,18 @@ import java.util.Date;
 /**
  * @Description 日志消费者
  * @Author LGy
- * @Date 2020/1/3 17:03
+ * @Date 2020/6/9
  **/
 @Service
-public class TraceLogHandler extends AbstractHandler<TraceLogEvent> {
+public class TraceLogHandlerTest extends AbstractHandler<TraceLogEvent> {
 
     @Autowired
     private MongoTemplate mongoTemplate;
 
     @Override
     public void onEvent(TraceLogEvent event) {
-        logger.info("traceLog开始消费 :" + JSON.toJSONString(event));
-        TraceLogBean traceLog = event.getTraceLog();
-        traceLog.setCreateTime(new Date().toString());
-//        int one = 1;
-//        int s = one/0;
-        mongoTemplate.save(event.getTraceLog());
+        logger.info("TraceLogHandlerTest开始消费 :" + JSON.toJSONString(event));
+        throw new RuntimeException();
+//        mongoTemplate.save(event.getTraceLog());
     }
 }
